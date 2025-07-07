@@ -79,37 +79,35 @@ const Chat = () => {
     setInputText("");
     setIsLoading(true);
 
-    // Simulate API call - replace with actual implementation
     try {
-  const response = await fetch("/api/gpt", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      question: inputText,
-      languages: selectedLanguages
-    })
-  });
+      const response = await fetch("https://gita-gpt-api.onrender.com/api/gpt", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          question: inputText,
+          languages: selectedLanguages
+        })
+      });
 
-  const data = await response.json();
+      const data = await response.json();
 
-  const botResponse: Message = {
-    id: Date.now().toString(),
-    text: "",
-    isUser: false,
-    responses: data.responses // <- from GPT!
-  };
+      const botResponse: Message = {
+        id: (Date.now() + 1).toString(),
+        text: "",
+        isUser: false,
+        responses: data.responses,
+      };
 
-  setMessages(prev => [...prev, botResponse]);
-} catch (error) {
-  toast({
-    title: "Sorry, I couldn’t reach the divine knowledge.",
-    variant: "destructive"
-  });
-} finally {
-  setIsLoading(false);
-}
+      setMessages(prev => [...prev, botResponse]);
+    } catch (err) {
+      console.error(err);
+      toast({
+        title: "Sorry, couldn't reach the divine knowledge.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
