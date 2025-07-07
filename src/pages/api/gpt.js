@@ -22,7 +22,7 @@ Do not explain or add anything outside the JSON.
 
   try {
     const completion = await openai.createChatCompletion({
-      model: "gpt-4", // or gpt-3.5-turbo
+      model: "gpt-3.5-turbo", // or gpt-3.5-turbo, gpt-4
       messages: [
         { role: "system", content: systemPrompt },
         { role: "user", content: question },
