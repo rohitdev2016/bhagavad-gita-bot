@@ -1,50 +1,44 @@
-// pages/api/gpt.ts
-import type { NextApiRequest, NextApiResponse } from "next";
-import OpenAI from "openai";
+import { Configuration, OpenAIApi } from "openai";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+const openai = new OpenAIApi(
+  new Configuration({
+    apiKey: process.env.OPENAI_API_KEY,
+  })
+);
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
-  }
-
+export default async function handler(req, res) {
   const { question, languages } = req.body;
 
-  if (!question || !Array.isArray(languages)) {
-    return res.status(400).json({ error: "Missing question or languages." });
-  }
-
   const systemPrompt = `
-You are a compassionate spiritual guide. Use verses from the Bhagavad Gītā to answer the user's question in these languages: ${languages.join(", ")}.
-Return the answer in this format:
+You are a spiritual teacher. For the question provided, respond using relevant Bhagavad Gita verses in these languages: ${languages.join(", ")}.
+Return only a JSON object like:
 {
-  "english": "...",
-  "hindi": "...",
-  "telugu": "..."
+  "english": "Response in English",
+  "hindi": "Response in Hindi",
+  "telugu": "Response in Telugu"
 }
+Do not explain or add anything outside the JSON.
 `;
 
   try {
-    const completion = await openai.chat.completions.create({
-      model: "gpt-4",
+    const completion = await openai.createChatCompletion({
+      model: "gpt-4", // or gpt-3.5-turbo
       messages: [
         { role: "system", content: systemPrompt },
-        {
-          role: "user",
-          content: question,
-        },
+        { role: "user", content: question },
       ],
     });
 
-    const content = completion.choices[0].message?.content ?? "{}";
-    const parsed = JSON.parse(content);
+    const content = completion.data.choices[0].message.content;
 
-    res.status(200).json({ responses: parsed });
-  } catch (error: any) {
-    console.error("OpenAI Error:", error);
-    res.status(500).json({ error: "OpenAI request failed", detail: error.message });
+    // Debug log (only on server)
+    console.log("GPT raw content:", content);
+
+    const json = JSON.parse(content); // This is where it breaks if GPT didn't return proper JSON
+
+    res.status(200).json({ responses: json });
+  } catch (err) {
+    console.error("GPT failed:", err.message);
+    res.status(500).json({ error: "GPT failed" });
   }
 }
