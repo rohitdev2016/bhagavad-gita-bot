@@ -106,8 +106,11 @@ const Home = () => {
 
       {/* Footer */}
       <footer className="container mx-auto px-4 py-8 text-center border-t border-border/50">
-        <p className="text-muted-foreground">
-          Made with 📖 by a seeker of truth
+        <p className="text-muted-foreground mb-2 italic">
+          "Bhagavad Gita is for all — from warriors to wanderers."
+        </p>
+        <p className="text-muted-foreground text-sm">
+          🧑‍💻 Crafted with devotion by Rohith Kumar Singirikonda
         </p>
       </footer>
     </div>
