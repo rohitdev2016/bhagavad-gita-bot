@@ -153,12 +153,10 @@ const Chat = () => {
                     Back
                   </Link>
                 </Button>
-                <div className="flex items-center gap-3">
+                <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
                   <span className="om-symbol">ॐ</span>
-                  <h1 className="text-xl font-cinzel font-bold gradient-spiritual bg-clip-text text-transparent">
-                    Gītā Wisdom
-                  </h1>
-                </div>
+                  <h1 className="text-xl font-cinzel font-bold gradient-spiritual bg-clip-text text-transparent"> Gītā Wisdom </h1>
+                </Link>
               </div>
               {/* Show sidebar trigger only when there are messages */}
               {messages.length > 0 && (
