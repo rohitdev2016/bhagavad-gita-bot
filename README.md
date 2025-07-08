@@ -100,5 +100,3 @@ The repository is organized with several key files and folders that define its s
 ```
 
 ---
-
-*Please remember to replace the placeholder images (`https://via.placeholder.com/...`) with your actual project banner, screenshots, and potentially generate real badges from services like Shields.io or your CI/CD provider.*
