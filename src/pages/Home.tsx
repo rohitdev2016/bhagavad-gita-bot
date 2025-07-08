@@ -20,7 +20,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-16 text-center">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8">
+          <div className="mb-8 -mt-12">
             <img 
               src={heroImage} 
               alt="Spiritual Wisdom" 
