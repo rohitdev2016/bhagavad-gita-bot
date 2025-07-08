@@ -44,11 +44,11 @@ While the specific features are not detailed in the provided sources, a bot rela
 To give users a visual understanding of the `bhagavad-gita-bot` in action, it's highly recommended to add screenshots or GIFs here.
 
 *   **Example Screenshot 1: Bot Interaction**
-    ![Bot Interaction Screenshot](https://bhagavad-gita-bot.vercel.app/chat)
+    ![Bot Interaction Screenshot](https://github.com/rohitdev2016/bhagavad-gita-bot/blob/8e4f4bea493203241f86a36278241ff5afe63c38/screenshorts/Bot%20Interaction.png)
     *A screenshot demonstrating a typical conversation flow or a user query and the bot's response.*
 
 *   **Example Screenshot 2: Key Feature Demonstration**
-    ![Key Feature Screenshot](https://bhagavad-gita-bot.vercel.app/chat)
+    ![Key Feature Screenshot](https://github.com/rohitdev2016/bhagavad-gita-bot/blob/main/screenshorts/Key%20Feature.png)
     *Showcase a unique or important feature of the bot, such as a verse search result or a daily verse delivery.*
 
 ## 💻 Technologies Used
