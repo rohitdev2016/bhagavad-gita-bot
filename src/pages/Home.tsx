@@ -10,12 +10,10 @@ const Home = () => {
       {/* Header */}
       <header className="container mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="om-symbol">ॐ</span>
-            <h1 className="text-2xl font-cinzel font-bold gradient-spiritual bg-clip-text text-transparent">
-              Gītā Wisdom
-            </h1>
-          </div>
+         <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <span className="om-symbol">ॐ</span>
+            <h1 className="text-2xl font-cinzel font-bold gradient-spiritual bg-clip-text text-transparent"> Gītā Wisdom </h1>
+          </Link>
         </div>
       </header>
 
