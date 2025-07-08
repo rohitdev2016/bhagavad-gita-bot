@@ -243,6 +243,15 @@ const Chat = () => {
                   <Send className="h-4 w-4" />
                 </Button>
               </div>
+              {/* Footer Attribution */}
+              <div className="text-center mt-4 pt-4 border-t border-border/20">
+                <p className="text-xs text-muted-foreground/80 mb-1 italic">
+                  "Bhagavad Gita is for all — from warriors to wanderers."
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  🧑‍💻 Crafted with devotion by Rohith Kumar Singirikonda
+                </p>
+              </div>
             </div>
           </div>
         </div>
